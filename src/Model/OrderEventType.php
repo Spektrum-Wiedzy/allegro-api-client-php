@@ -28,7 +28,8 @@
  */
 
 namespace AllegroApi\Model;
-use \AllegroApi\ObjectSerializer;
+
+use AllegroApi\ObjectSerializer;
 
 /**
  * OrderEventType Class Doc Comment

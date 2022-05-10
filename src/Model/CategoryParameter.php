@@ -29,8 +29,9 @@
 
 namespace AllegroApi\Model;
 
-use \ArrayAccess;
-use \AllegroApi\ObjectSerializer;
+use ArrayAccess;
+use AllegroApi\ObjectSerializer;
+use ReturnTypeWillChange;
 
 /**
  * CategoryParameter Class Doc Comment
@@ -78,6 +79,68 @@ class CategoryParameter implements ModelInterface, ArrayAccess
         'unit' => null,
         'options' => null
     ];
+    /**
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
+     * @var string[]
+     */
+    protected static $attributeMap = [
+        'id' => 'id',
+        'name' => 'name',
+        'type' => 'type',
+        'required' => 'required',
+        'unit' => 'unit',
+        'options' => 'options'
+    ];
+    /**
+     * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @var string[]
+     */
+    protected static $setters = [
+        'id' => 'setId',
+        'name' => 'setName',
+        'type' => 'setType',
+        'required' => 'setRequired',
+        'unit' => 'setUnit',
+        'options' => 'setOptions'
+    ];
+    /**
+     * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @var string[]
+     */
+    protected static $getters = [
+        'id' => 'getId',
+        'name' => 'getName',
+        'type' => 'getType',
+        'required' => 'getRequired',
+        'unit' => 'getUnit',
+        'options' => 'getOptions'
+    ];
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
+
+    /**
+     * Constructor
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
+     */
+    public function __construct(array $data = null)
+    {
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['required'] = isset($data['required']) ? $data['required'] : null;
+        $this->container['unit'] = isset($data['unit']) ? $data['unit'] : null;
+        $this->container['options'] = isset($data['options']) ? $data['options'] : null;
+    }
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -98,49 +161,6 @@ class CategoryParameter implements ModelInterface, ArrayAccess
     {
         return self::$openAPIFormats;
     }
-
-    /**
-     * Array of attributes where the key is the local name,
-     * and the value is the original name
-     *
-     * @var string[]
-     */
-    protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'type' => 'type',
-        'required' => 'required',
-        'unit' => 'unit',
-        'options' => 'options'
-    ];
-
-    /**
-     * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @var string[]
-     */
-    protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'type' => 'setType',
-        'required' => 'setRequired',
-        'unit' => 'setUnit',
-        'options' => 'setOptions'
-    ];
-
-    /**
-     * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @var string[]
-     */
-    protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'type' => 'getType',
-        'required' => 'getRequired',
-        'unit' => 'getUnit',
-        'options' => 'getOptions'
-    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -183,31 +203,15 @@ class CategoryParameter implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-
-
-
-
     /**
-     * Associative array for storing property values
+     * Validate all the properties in the model
+     * return true if all passed
      *
-     * @var mixed[]
+     * @return bool True if all properties are valid
      */
-    protected $container = [];
-
-    /**
-     * Constructor
-     *
-     * @param mixed[] $data Associated array of property values
-     *                      initializing the model
-     */
-    public function __construct(array $data = null)
+    public function valid()
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['required'] = isset($data['required']) ? $data['required'] : null;
-        $this->container['unit'] = isset($data['unit']) ? $data['unit'] : null;
-        $this->container['options'] = isset($data['options']) ? $data['options'] : null;
+        return count($this->listInvalidProperties()) === 0;
     }
 
     /**
@@ -221,18 +225,6 @@ class CategoryParameter implements ModelInterface, ArrayAccess
 
         return $invalidProperties;
     }
-
-    /**
-     * Validate all the properties in the model
-     * return true if all passed
-     *
-     * @return bool True if all properties are valid
-     */
-    public function valid()
-    {
-        return count($this->listInvalidProperties()) === 0;
-    }
-
 
     /**
      * Gets id
@@ -357,7 +349,7 @@ class CategoryParameter implements ModelInterface, ArrayAccess
     /**
      * Gets options
      *
-     * @return \AllegroApi\Model\CategoryParameterOptions|null
+     * @return CategoryParameterOptions|null
      */
     public function getOptions()
     {
@@ -367,7 +359,7 @@ class CategoryParameter implements ModelInterface, ArrayAccess
     /**
      * Sets options
      *
-     * @param \AllegroApi\Model\CategoryParameterOptions|null $options options
+     * @param CategoryParameterOptions|null $options options
      *
      * @return $this
      */
@@ -377,6 +369,7 @@ class CategoryParameter implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -384,6 +377,7 @@ class CategoryParameter implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
+    #[ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -396,6 +390,7 @@ class CategoryParameter implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -405,10 +400,11 @@ class CategoryParameter implements ModelInterface, ArrayAccess
      * Sets value based on offset.
      *
      * @param integer $offset Offset
-     * @param mixed   $value  Value to be set
+     * @param mixed $value Value to be set
      *
      * @return void
      */
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -425,6 +421,7 @@ class CategoryParameter implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
