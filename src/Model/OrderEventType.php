@@ -49,6 +49,7 @@ class OrderEventType
     const FILLED_IN = 'FILLED_IN';
     const READY_FOR_PROCESSING = 'READY_FOR_PROCESSING';
     const BUYER_CANCELLED = 'BUYER_CANCELLED';
+    const AUTO_CANCELLED = 'AUTO_CANCELLED';
     const FULFILLMENT_STATUS_CHANGED = 'FULFILLMENT_STATUS_CHANGED';
     const BUYER_MODIFIED = 'BUYER_MODIFIED';
 
@@ -63,6 +64,7 @@ class OrderEventType
             self::FILLED_IN,
             self::READY_FOR_PROCESSING,
             self::BUYER_CANCELLED,
+            self::AUTO_CANCELLED,
             self::FULFILLMENT_STATUS_CHANGED,
             self::BUYER_MODIFIED,
         ];
