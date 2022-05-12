@@ -50,6 +50,7 @@ class CheckoutFormFulfillmentStatus
     const READY_FOR_SHIPMENT = 'READY_FOR_SHIPMENT';
     const READY_FOR_PICKUP = 'READY_FOR_PICKUP';
     const SENT = 'SENT';
+    const PICKED_UP = 'PICKED_UP';
     const CANCELLED = 'CANCELLED';
     const SUSPENDED = 'SUSPENDED';
 
@@ -65,6 +66,7 @@ class CheckoutFormFulfillmentStatus
             self::READY_FOR_SHIPMENT,
             self::READY_FOR_PICKUP,
             self::SENT,
+            self::PICKED_UP,
             self::CANCELLED,
             self::SUSPENDED,
         ];
