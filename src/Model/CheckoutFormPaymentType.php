@@ -49,6 +49,7 @@ class CheckoutFormPaymentType
     const WIRE_TRANSFER = 'WIRE_TRANSFER';
     const ONLINE = 'ONLINE';
     const SPLIT_PAYMENT = 'SPLIT_PAYMENT';
+    const EXTENDED_TERM = 'EXTENDED_TERM';
 
     /**
      * Gets allowable values of the enum
@@ -61,6 +62,7 @@ class CheckoutFormPaymentType
             self::WIRE_TRANSFER,
             self::ONLINE,
             self::SPLIT_PAYMENT,
+            self::EXTENDED_TERM,
         ];
     }
 }
