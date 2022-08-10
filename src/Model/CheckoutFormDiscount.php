@@ -222,6 +222,7 @@ class CheckoutFormDiscount implements ModelInterface, ArrayAccess
             self::TYPE_BUNDLE,
             self::TYPE_MULTIPACK,
             self::TYPE_CROSSMULTIPACK,
+            self::TYPE_ALLEGRO_PRICES,
         ];
     }
 
