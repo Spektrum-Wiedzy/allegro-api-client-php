@@ -48,6 +48,7 @@ class CheckoutFormPaymentProvider
     const P24 = 'P24';
     const PAYU = 'PAYU';
     const OFFLINE = 'OFFLINE';
+    const EPT = 'EPT';
 
     /**
      * Gets allowable values of the enum
@@ -59,6 +60,7 @@ class CheckoutFormPaymentProvider
             self::P24,
             self::PAYU,
             self::OFFLINE,
+            self::EPT,
         ];
     }
 }
