@@ -1,6 +1,7 @@
 {
     "name": "spektrum-wiedzy/allegro-api-client-php",
     "description": "",
+    "version": "4.0.0",
     "keywords": [
         "Allegro",
         "openapi-generated",
@@ -11,7 +12,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": ">=7.2",
+        "php": ">=8.0",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
